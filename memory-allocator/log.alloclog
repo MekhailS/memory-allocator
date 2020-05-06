@@ -1,0 +1,97 @@
+format:
+// | size of cur block | size of next block | size of previous block | (-1 if allocated +1 if free) memory | size of cur block |
+
+
+ALLOCATING BLOCK SIZE OF 9, ALLOCATOR:
+HEAD IS: | 330 | 330 | 330 |1 memory| 330 |
+| 330 | 330 | 330 |1 memory| 330 |
+success alloc, ALLOCATOR:
+HEAD IS: | 305 | 305 | 305 |1 memory| 305 |
+| 305 | 305 | 305 |1 memory| 305 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 50, ALLOCATOR:
+HEAD IS: | 305 | 305 | 305 |1 memory| 305 |
+| 305 | 305 | 305 |1 memory| 305 || -25 | 0 | 0 |-1 memory| -25 |
+success alloc, ALLOCATOR:
+HEAD IS: | 239 | 239 | 239 |1 memory| 239 |
+| 239 | 239 | 239 |1 memory| 239 || -66 | 0 | 0 |-1 memory| -66 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 83, ALLOCATOR:
+HEAD IS: | 239 | 239 | 239 |1 memory| 239 |
+| 239 | 239 | 239 |1 memory| 239 || -66 | 0 | 0 |-1 memory| -66 || -25 | 0 | 0 |-1 memory| -25 |
+success alloc, ALLOCATOR:
+HEAD IS: | 140 | 140 | 140 |1 memory| 140 |
+| 140 | 140 | 140 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || -66 | 0 | 0 |-1 memory| -66 || -25 | 0 | 0 |-1 memory| -25 |
+
+FREE BLOCK SIZE OF -66, ALLOCATOR:
+HEAD IS: | 140 | 140 | 140 |1 memory| 140 |
+| 140 | 140 | 140 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || -66 | 0 | 0 |-1 memory| -66 || -25 | 0 | 0 |-1 memory| -25 |
+success free, ALLOCATOR:
+HEAD IS: | 66 | 140 | 140 |1 memory| 66 |
+| 140 | 66 | 66 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || 66 | 140 | 140 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 23, ALLOCATOR:
+HEAD IS: | 66 | 140 | 140 |1 memory| 66 |
+| 140 | 66 | 66 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || 66 | 140 | 140 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+success alloc, ALLOCATOR:
+HEAD IS: | 27 | 140 | 140 |1 memory| 27 |
+| 140 | 27 | 27 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || 27 | 140 | 140 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 75, ALLOCATOR:
+HEAD IS: | 27 | 140 | 140 |1 memory| 27 |
+| 140 | 27 | 27 |1 memory| 140 || -99 | 0 | 0 |-1 memory| -99 || 27 | 140 | 140 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+success alloc, ALLOCATOR:
+HEAD IS: | 49 | 27 | 27 |1 memory| 49 |
+| 49 | 27 | 27 |1 memory| 49 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 27 | 49 | 49 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 12, ALLOCATOR:
+HEAD IS: | 49 | 27 | 27 |1 memory| 49 |
+| 49 | 27 | 27 |1 memory| 49 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 27 | 49 | 49 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+success alloc, ALLOCATOR:
+HEAD IS: | 21 | 27 | 27 |1 memory| 21 |
+| 21 | 27 | 27 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 27 | 21 | 21 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+
+FREE BLOCK SIZE OF -39, ALLOCATOR:
+HEAD IS: | 21 | 27 | 27 |1 memory| 21 |
+| 21 | 27 | 27 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 27 | 21 | 21 |1 memory| 27 || -39 | 0 | 0 |-1 memory| -39 || -25 | 0 | 0 |-1 memory| -25 |
+success free, ALLOCATOR:
+HEAD IS: | 21 | 66 | 66 |1 memory| 21 |
+| 21 | 66 | 66 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 66 | 21 | 21 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+
+ALLOCATING BLOCK SIZE OF 70, ALLOCATOR:
+HEAD IS: | 21 | 66 | 66 |1 memory| 21 |
+| 21 | 66 | 66 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 66 | 21 | 21 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+fail alloc, ALLOCATOR:
+HEAD IS: | 21 | 66 | 66 |1 memory| 21 |
+| 21 | 66 | 66 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 66 | 21 | 21 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+
+FREE BLOCK SIZE OF -25, ALLOCATOR:
+HEAD IS: | 21 | 66 | 66 |1 memory| 21 |
+| 21 | 66 | 66 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 66 | 21 | 21 |1 memory| 66 || -25 | 0 | 0 |-1 memory| -25 |
+success free, ALLOCATOR:
+HEAD IS: | 21 | 91 | 91 |1 memory| 21 |
+| 21 | 91 | 91 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 91 | 21 | 21 |1 memory| 91 |
+
+FREE BLOCK SIZE OF -99, ALLOCATOR:
+HEAD IS: | 21 | 91 | 91 |1 memory| 21 |
+| 21 | 91 | 91 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || -99 | 0 | 0 |-1 memory| -99 || 91 | 21 | 21 |1 memory| 91 |
+success free, ALLOCATOR:
+HEAD IS: | 190 | 21 | 21 |1 memory| 190 |
+| 21 | 190 | 190 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || 190 | 21 | 21 |1 memory| 190 |
+
+FREE BLOCK SIZE OF -28, ALLOCATOR:
+HEAD IS: | 190 | 21 | 21 |1 memory| 190 |
+| 21 | 190 | 190 |1 memory| 21 || -28 | 0 | 0 |-1 memory| -28 || -91 | 0 | 0 |-1 memory| -91 || 190 | 21 | 21 |1 memory| 190 |
+success free, ALLOCATOR:
+HEAD IS: | 190 | 49 | 49 |1 memory| 190 |
+| 49 | 190 | 190 |1 memory| 49 || -91 | 0 | 0 |-1 memory| -91 || 190 | 49 | 49 |1 memory| 190 |
+
+FREE BLOCK SIZE OF -91, ALLOCATOR:
+HEAD IS: | 190 | 49 | 49 |1 memory| 190 |
+| 49 | 190 | 190 |1 memory| 49 || -91 | 0 | 0 |-1 memory| -91 || 190 | 49 | 49 |1 memory| 190 |
+success free, ALLOCATOR:
+HEAD IS: | 330 | 330 | 330 |1 memory| 330 |
+| 330 | 330 | 330 |1 memory| 330 |
+success free, ALLOCATOR:
+HEAD IS: | 330 | 330 | 330 |1 memory| 330 |
+| 330 | 330 | 330 |1 memory| 330 |
